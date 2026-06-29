@@ -1,16 +1,27 @@
 ---
 name: web-access
-description: Web research and browser-operation workflow for Codex. Use when a task depends on current internet information, source verification, a specific URL, dynamic page reading, browser interaction, file upload/download flows, login-sensitive website state, or evidence-backed answers with citations. Prefer lightweight search and page reads first, then escalate to browser automation or local Chrome CDP only when the page or task requires it.
+description: "External-world access layer for Codex: rigorous live web research, source verification, page reading, dynamic-site inspection, browser automation, and login-sensitive web workflows. Use whenever a task depends on information beyond the model's built-in knowledge: current facts, prices, laws, schedules, product docs, company or people changes, specific URLs, primary-source citations, downloads, uploads, form flows, dashboard state, or websites that require rendered browser behavior. This skill turns web work into an evidence-driven escalation process: start with search and direct source reads, preserve citations and timestamps, move to Playwright or in-app browser tools for dynamic pages, and use local Chrome CDP only when the user's real browser session is necessary."
 ---
 
 # Web Access
 
-Use this skill when a request needs the live web or a real browser surface. Treat it as an investigation workflow: define the needed result, choose the cheapest credible access layer, preserve evidence, and stop when the requested outcome is verified.
+Use this skill as Codex's external-world access layer. It closes the gap between model memory and live reality: current facts change, pages render through JavaScript, important evidence hides behind interaction, and some workflows only exist inside a logged-in browser session.
+
+Treat web work as an evidence pipeline. Define the needed result, choose the lightest credible access layer, preserve source trails, escalate only when the page demands it, and stop when the requested outcome is verified.
+
+## What This Skill Protects Against
+
+- stale answers from model memory when the facts may have changed
+- weak research based on search snippets instead of opened sources
+- losing source provenance, publication dates, timestamps, or page state
+- overusing browser automation when a direct source read is enough
+- underusing browser automation when content is rendered, interactive, or login-bound
+- treating a clicked button, upload, download, or form submission as successful before verifying the resulting state
 
 ## Core Workflow
 
 1. Define the success condition.
-   Decide whether the task needs a current fact, a source-linked answer, a completed web action, a downloaded artifact, a screenshot, or browser state verification.
+   Decide whether the task needs a current fact, a primary-source answer, a completed web action, a downloaded artifact, a screenshot, or browser state verification.
 
 2. Start with the lightest reliable layer.
    Use search and direct page reads for factual lookup. Use browser automation only when content is dynamic, interactive, gated by UI state, or depends on upload/download flows.
@@ -37,6 +48,7 @@ Prefer this order unless the user request clearly starts at a higher layer:
 - Use secondary reporting only when primary sources are unavailable or insufficient, and say so.
 - For unstable facts such as prices, laws, schedules, product specs, company roles, package docs, or recent events, verify freshness before answering.
 - Keep extracted evidence narrow: titles, dates, snippets, URLs, status, selectors, and the smallest relevant page passages.
+- When completing a web action, verify the post-action state through page text, URL, status, saved file, confirmation view, or another concrete signal.
 
 ## Browser Strategy
 

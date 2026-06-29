@@ -1,7 +1,7 @@
 interface:
   display_name: "Web Access"
-  short_description: "分层处理搜索、页面读取、浏览器操作、登录态和来源核验"
-  default_prompt: "Use $web-access to verify live web information, cite sources, and operate browser flows when needed."
+  short_description: "Codex 外部事实访问层：搜索、核验、浏览器操作与证据链"
+  default_prompt: "Use $web-access to verify live web information, preserve source evidence, and operate browser flows when needed."
 
 policy:
   allow_implicit_invocation: true
